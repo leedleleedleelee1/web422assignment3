@@ -11,17 +11,17 @@
 ********************************************************************************/ 
 
 
-
 import useSWR from 'swr';
 import { useState, useEffect } from 'react';
-import { Pagination, Accordion } from 'react-bootstrap';
+import { Pagination, Accordion, Button } from 'react-bootstrap';
 import ListingDetails from '@/components/ListingDetails';
 import PageHeader from '@/components/PageHeader';
+import Link from 'next/link';
 
 const Home = () => {
   const [page, setPage] = useState(1);
   const [pageData, setPageData] = useState([]);
-  const { data, error } = useSWR(`YOUR_API_URL_HERE?page=${page}&perPage=10`);
+  const { data, error } = useSWR(`https://web422assignment1-ehad.onrender.com/api/listings?page=${page}&perPage=10`);
 
   useEffect(() => {
     if (data) {
@@ -50,6 +50,9 @@ const Home = () => {
             </Accordion.Header>
             <Accordion.Body>
               <ListingDetails listing={listing} />
+              <Link href={`/listings/${listing._id}`} passHref>
+                <Button variant="primary">View Listing</Button>
+              </Link>
             </Accordion.Body>
           </Accordion.Item>
         ))}
@@ -64,3 +67,4 @@ const Home = () => {
 };
 
 export default Home;
+

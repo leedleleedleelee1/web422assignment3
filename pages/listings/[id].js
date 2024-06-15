@@ -7,7 +7,7 @@ import PageHeader from '@/components/PageHeader';
 const Listing = () => {
   const router = useRouter();
   const { id } = router.query;
-  const { data, error, isLoading } = useSWR(id ? `YOUR_API_URL_HERE/${id}` : null);
+  const { data, error, isLoading } = useSWR(id ? `https://web422assignment1-ehad.onrender.com/api/listings/${id}` : null);
 
   if (isLoading) return null;
   if (error || !data) return <Error statusCode={404} />;

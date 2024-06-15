@@ -4,13 +4,13 @@ import Link from 'next/link';
 const MainNav = () => (
   <Navbar className="fixed-top navbar-dark bg-dark">
     <Container>
-      <Navbar.Brand>Student Name</Navbar.Brand>
+      <Navbar.Brand>Frank</Navbar.Brand>
       <Nav className="me-auto">
-        <Link href="/" passHref legacyBehavior>
-          <Nav.Link>Listings</Nav.Link>
+        <Link href="/" passHref>
+          <Nav.Link as="div">Listings</Nav.Link>
         </Link>
-        <Link href="/about" passHref legacyBehavior>
-          <Nav.Link>About</Nav.Link>
+        <Link href="/about" passHref>
+          <Nav.Link as="div">About</Nav.Link>
         </Link>
       </Nav>
     </Container>
